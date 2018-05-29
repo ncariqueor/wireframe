@@ -15,53 +15,22 @@ block content
                                 else
                                     -var url = article.url
 
+                                if(article.story_title === null)
+                                    -var title = article.title
+                                else
+                                    -var title = article.story_title
+
                                 -var url_id = "/delete/" + article._id
 
-                                tr(data-href=url class='table-row')
-                                    if article.story_title === null
-                                        if(article.story_url === null)
-                                            td
-                                                a(href=article.url)
-                                                    p(class='Title') #{article.title}
-                                                    p(class='Author') - #{article.author} -
-                                            td
-                                                span(class='prettydate')
-                                                    p(class='Time') #{article.created_at}
-                                            td
-                                                a(href=url_id class='trash' )
-                                                    span(class='glyphicon glyphicon-trash')
-                                        else
-                                            td
-                                                a(href=article.story_url)
-                                                    p(class='Title') #{article.title}
-                                                    p(class='Author') - #{article.author} -
-                                            td
-                                                span(class='prettydate')
-                                                    p(class='Time') #{article.created_at}
-                                            td
-                                                a(href=url_id class='trash' )
-                                                    span(class='glyphicon glyphicon-trash')
-                                    else
-                                        if(article.story_url === null)
-                                            td
-                                                a(href=article.url)
-                                                    p(class='Title') #{article.story_title}
-                                                    p(class='Author') - #{article.author} -
-                                            td
-                                                span(class='prettydate')
-                                                    p(class='Time') #{article.created_at}
-                                            td
-                                                a(href=url_id class='trash')
-                                                    span(class='glyphicon glyphicon-trash')
-                                        else
-                                            td
-                                                a(href=article.story_url)
-                                                    p(class='Title')  #{article.story_title}
-                                                    p(class='Author') - #{article.author} -
-                                            td
-                                                span(class='prettydate')
-                                                    p(class='Time') #{article.created_at}
-                                            td
-                                                a(href=url_id class='trash')
-                                                    span(class='glyphicon glyphicon-trash')
+                                tr(data-href=url)
+                                    td(class='table-row')
+                                        a(href=article.url)
+                                            p(class='Title') #{title}
+                                            p(class='Author') - #{article.author} -
+                                    td(class='table-row')
+                                        span(class='prettydate')
+                                            p(class='Time') #{article.created_at}
+                                    td
+                                        a(href=url_id class='trash' )
+                                            span(class='glyphicon glyphicon-trash')
 
