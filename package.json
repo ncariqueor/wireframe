@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon index.js",
+    "start": "node backend/index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Nelson Cariqueo Rojas",
@@ -12,7 +12,9 @@
   "dependencies": {
     "body-parser": "^1.18.3",
     "express": "^4.16.3",
-    "mongoose": "^5.1.2"
+    "mongoose": "^5.1.2",
+    "pug": "^2.0.3",
+    "request": "^2.87.0"
   },
   "devDependencies": {
     "nodemon": "^1.17.5"

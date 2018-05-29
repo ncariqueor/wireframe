@@ -1,0 +1,67 @@
+extends layout
+block content
+    div.container-fluid
+        div.panel
+            div.panel-heading
+                h1 HN Feed
+                h4 We <3 hacker news!
+            div.panel-body
+                div.container
+                    div.table-responsive
+                        table(class='table')
+                            each article, i in articles
+                                if(article.url === null)
+                                    -var url = article.story_url
+                                else
+                                    -var url = article.url
+
+                                -var url_id = "/delete/" + article._id
+
+                                tr(data-href=url class='table-row')
+                                    if article.story_title === null
+                                        if(article.story_url === null)
+                                            td
+                                                a(href=article.url)
+                                                    p(class='Title') #{article.title}
+                                                    p(class='Author') - #{article.author} -
+                                            td
+                                                span(class='prettydate')
+                                                    p(class='Time') #{article.created_at}
+                                            td
+                                                a(href=url_id class='trash' )
+                                                    span(class='glyphicon glyphicon-trash')
+                                        else
+                                            td
+                                                a(href=article.story_url)
+                                                    p(class='Title') #{article.title}
+                                                    p(class='Author') - #{article.author} -
+                                            td
+                                                span(class='prettydate')
+                                                    p(class='Time') #{article.created_at}
+                                            td
+                                                a(href=url_id class='trash' )
+                                                    span(class='glyphicon glyphicon-trash')
+                                    else
+                                        if(article.story_url === null)
+                                            td
+                                                a(href=article.url)
+                                                    p(class='Title') #{article.story_title}
+                                                    p(class='Author') - #{article.author} -
+                                            td
+                                                span(class='prettydate')
+                                                    p(class='Time') #{article.created_at}
+                                            td
+                                                a(href=url_id class='trash')
+                                                    span(class='glyphicon glyphicon-trash')
+                                        else
+                                            td
+                                                a(href=article.story_url)
+                                                    p(class='Title')  #{article.story_title}
+                                                    p(class='Author') - #{article.author} -
+                                            td
+                                                span(class='prettydate')
+                                                    p(class='Time') #{article.created_at}
+                                            td
+                                                a(href=url_id class='trash')
+                                                    span(class='glyphicon glyphicon-trash')
+

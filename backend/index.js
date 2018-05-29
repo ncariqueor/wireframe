@@ -10,10 +10,10 @@ mongoose.connect('mongodb://localhost:27017/wireframe', function(err, res) {
     if(err){
         throw err;
     }else{
-        console.log("La conexión base está corriendo correctamente...");
+        console.log("Server running...");
 
         app.listen(port, function(){
-            console.log("Servidor escuchando en http://localhost:" + port);
+            console.log("Backend Listening on http://localhost:" + port);
         });
     }
 });

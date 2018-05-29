@@ -8,11 +8,11 @@ var Article   = require('../models/article');
 
 function getArticles(req, res) {
 
-    Article.find({}).exec(function(err, document) {
+    Article.find({}).sort({created_at: -1}).exec(function(err, document) {
         if(err){
-            res.status(500).send({message: "Error en la petición"});
+            res.status(500).send({message: "Server error"});
         }else{
-            res.status(200).send({article: document});
+            res.status(200).send(document);
         }
     });
 }
@@ -54,7 +54,7 @@ function getJson() {
                     throw err;
                 }else{
                     if(!articleStored){
-                        console.log("Error al insertar articulo");
+                        console.log("Error: Article was not inserted");
                     }
                 }
             });
@@ -64,7 +64,7 @@ function getJson() {
 
 getJson();
 
-setInterval(function(){getJson();}, 120000); //    That line sets getJson function interval
+setInterval(function(){getJson();}, 3600000); //    That line sets getJson function interval
 
 module.exports = {
     getArticles,

@@ -6,11 +6,11 @@ var bodyParser = require('body-parser');
 
 var app = express();
 
-// Cargas rutas
+// Routes
 
 var article_routes = require('./routes/article');
 
-// Congifurar Cabeceras http
+// Configure headers HTTP
 
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(bodyParser.json());
@@ -29,6 +29,6 @@ app.use(function(req, res, next) {
 
 app.use('/wireframe', article_routes);
 
-//  Exportar modulo para usar en index.js
+//  Export module
 
 module.exports = app;

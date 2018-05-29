@@ -1,0 +1,55 @@
+
+tr:hover {
+    background-color: #fafafa;
+}
+
+.trash {
+    color: transparent;
+    font-size: 13pt;
+    z-index: 99;
+    position: relative;
+}
+
+tr:hover .trash{
+    color: black;
+}
+
+tr {
+    background-color: #fff;
+    border: 1px solid #ccc
+}
+
+.Title{
+    color: #333;
+    font-size: 13pt;
+    float: left;
+}
+
+.Author{
+    color: #999;
+    float: left;
+    margin-left: 10px;
+}
+
+.Time{
+    color: #333;
+    font-size: 13pt;
+}
+
+tr{
+    cursor: pointer;
+}
+
+.panel-heading{
+    background-color: #333333;
+    color: white;
+}
+
+.panel-heading h1{
+    font-size: 80px;
+    padding: 16px;
+}
+
+.panel-heading h4{
+    margin-left: 25px;
+}
